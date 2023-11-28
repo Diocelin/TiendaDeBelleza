@@ -3,48 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AccesoDatos;
 
-namespace Negocio
+namespace Entities
 {
-   public class Facturas
+    public class Facturas
     {
-        public List<Entities.Facturas> SelectFactura(int id)
-        {
-            FacturasDataContext dblib = new FacturasDataContext();
-            ProductosDataContext dblibb = new ProductosDataContext();
-            var q = from U in dblib.sp_ConsultaFactura(id)
-               join B in dblibb.sp_ConsultaProductos() on U.Id_Producto equals B.Id_Producto
-                    select new Entities.Facturas
-                    {
-                        Factura = (int)U.Factura,
-                        idProducto = (int)U.Id_Producto,
-                        Producto = B.Producto,
-                        Cantidad = (int)U.Cantidad,
-                        Total = (decimal)U.Total,
-                        Fecha = (DateTime)U.Fecha
-                    };
-            return q.ToList();
-        }
+        private int _Factura;
+        private int _idProducto;
+        private string _Producto;
+        private int _Cantidad;
+        private decimal _Total;
+        private DateTime _Fecha;
 
-        public void InsertarFactura(int Fac, int idP, int cant, decimal sub, DateTime Fe)
-        {
-            FacturasDataContext dblib = new FacturasDataContext();
-            dblib.sp_InsertayModificaFactura(Fac, idP, cant, sub, Fe);
-            dblib.SubmitChanges();
-        }
+        public int Factura
+        { get { return _Factura; } set { _Factura = value; } }
 
-        public void EliminaFactura(int id)
-        {
-            FacturasDataContext dblib = new FacturasDataContext();
-            dblib.sp_EliminaFactura(id);
-            dblib.SubmitChanges();
-        }
-        public void CancelaFacturas()
-        {
-            FacturasDataContext dblib = new FacturasDataContext();
-            dblib.sp_CancelaFacturas();
-            dblib.SubmitChanges();
-        }
+        public int idProducto
+        { get { return _idProducto; } set { _idProducto = value; } }
+
+        public string Producto
+        { get { return _Producto; } set { _Producto = value; } }
+
+        public int Cantidad
+        { get { return _Cantidad; } set { _Cantidad = value; } }
+
+        public decimal Total
+        { get { return _Total; } set { _Total = value; } }
+
+        public DateTime Fecha
+        { get { return _Fecha; } set { _Fecha = value; } }
     }
 }

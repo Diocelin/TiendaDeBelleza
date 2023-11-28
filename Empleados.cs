@@ -3,54 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities;
-using AccesoDatos;
 
-namespace Negocio
+namespace Entities
 {
     public class Empleados
     {
-        public List<Entities.Empleados> SelectEmpledos()
-        {
-            EmpleadosDataContext dblib = new EmpleadosDataContext();
-            var q = from U in dblib.sp_ConsultaEmpleados()
-                    select new Entities.Empleados
-                    {
-                        idEmpleado = (int)U.Id_emp,
-                        Nombre = U.Nombre,
-                        Genero = U.Genero,
-                        Foto = U.Foto,
-                        Puesto = U.Puesto,
-                        Activo = U.Activo,
-                        FechaRegistro = U.Fecha,
-                        FechaNacimiento = (DateTime)U.F_Nac
-                    };
-            return q.ToList();
-        }
-        public void EliminarEmpledos(int id)
-        {
-            EmpleadosDataContext dblib = new EmpleadosDataContext();
-            dblib.sp_EliminarEmpleado(id);
-            dblib.SubmitChanges();
-        }
+        private int _idEmpleado;
+        private string _Nombre;
+        private string _Genero;
+        private string _Foto;
+        private string _Puesto;
+        private Boolean _Activo;
+        private DateTime _FechaNacimiento;
+        private DateTime _FechaRegistro;
 
-        public void AgregarEmpledos(int id, string Nom, string Gen, string Fot, string Pue, Boolean Act, DateTime FReg, DateTime FNac)
-        {
-            EmpleadosDataContext dblib = new EmpleadosDataContext();
-            dblib.sp_InsertayModificaEmpleados(id,Nom,Gen,Fot,FNac,Pue,Act,FReg);
-            dblib.SubmitChanges();
-        }
-        public List<Entities.Empleados> EmpleadoNoUsuario()
-        {
-            EmpleadosDataContext dblib = new EmpleadosDataContext();
-            var q = from U in dblib.sp_ConsultaEmpleadosSinUsuario()
-                    select new Entities.Empleados
-                    {
-                        idEmpleado = (int)U.Id_emp,
-                        Nombre = U.Nombre
-                    };
-            return q.ToList();
+        public int idEmpleado
+        { get { return _idEmpleado; } set { _idEmpleado = value; } }
 
-        }
+        public string Nombre
+        { get { return _Nombre; } set { _Nombre = value; } }
+
+        public string Genero
+        { get { return _Genero; } set { _Genero = value; } }
+
+        public string Foto
+        { get { return _Foto; } set { _Foto = value; } }
+
+        public DateTime FechaNacimiento
+        { get { return _FechaNacimiento; } set { _FechaNacimiento = value; } }
+
+        public string Puesto
+        { get { return _Puesto; } set { _Puesto = value; } }
+
+        public Boolean Activo
+        { get { return _Activo; } set { _Activo = value; } }
+
+        public DateTime FechaRegistro
+        { get { return _FechaRegistro; } set { _FechaRegistro = value; } }
     }
 }

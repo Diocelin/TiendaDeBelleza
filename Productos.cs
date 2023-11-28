@@ -3,79 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities;
-using AccesoDatos;
 
-namespace Negocio
+namespace Entities
 {
     public class Productos
     {
-        public List<Entities.Productos> SelectProductos()
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            var q = from U in dblib.sp_ConsultaProductos()
-                    select new Entities.Productos
-                    {
-                        idProducto = (int)U.Id_Producto,
-                        Producto = U.Producto,
-                        Precio = (decimal)U.Precio,
-                        Activo = (Boolean)U.Activo,
-                        Fecha = (DateTime)U.Fecha
-                    };
-            return q.ToList();
-        }
+        private int _idProducto;
+        private String _Producto;
+        private decimal _Precio;
+        private Boolean _Activo;
+        private DateTime _Fecha;
 
-        public List<Entities.Productos> ConsultaAlmacenExistente(int fac)
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            var q = from U in dblib.sp_ConsultaAlmacenExistente(fac)
-                    select new Entities.Productos
-                    {
-                        idProducto = (int)U.Id_Producto,
-                        Producto = U.Producto,
-                        Precio = (decimal)U.Precio,
-                        Activo = (Boolean)U.Activo,
-                        Fecha = (DateTime)U.Fecha
-                    };
-            return q.ToList();
-        }
+        public int idProducto
+        { get{ return _idProducto; } set{ _idProducto = value; } }
 
-        public void EliminarProducto(int id)
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            dblib.sp_EliminarProducto(id);
-            dblib.SubmitChanges();
-        }
+        public String Producto
+        { get { return _Producto; } set { _Producto = value; } }
 
-        public void InsertarProducto(int id, string Prod, decimal precio, Boolean Act, DateTime FReg)
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            dblib.sp_InsertayModificaProductos(id, Prod, precio , Act, FReg);
-            dblib.SubmitChanges();
-        }
+        public decimal Precio
+        { get { return _Precio; } set { _Precio = value; } }
 
-        public List<Entities.Productos> ProductoNoRegistrado()
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            var q = from U in dblib.sp_ConsultaProductosActivosSinRegistrar()
-                    select new Entities.Productos
-                    {
-                        idProducto = (int)U.Id_Producto,
-                        Producto = U.Producto
-                    };
-            return q.ToList();
+        public Boolean Activo
+        { get { return _Activo; } set { _Activo = value; } }
 
-        }
-
-        public List<Entities.Productos> Precio(int id)
-        {
-            ProductosDataContext dblib = new ProductosDataContext();
-            var q = from U in dblib.sp_ConsultaPrecio(id)
-                    select new Entities.Productos
-                    {
-                        Precio = (decimal)U.Precio
-                    };
-            return q.ToList();
-        }
+        public DateTime Fecha
+        { get { return _Fecha; } set { _Fecha = value; } }
     }
 }

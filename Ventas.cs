@@ -3,51 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AccesoDatos;
 
-namespace Negocio
+namespace Entities
 {
     public class Ventas
     {
-       public List<Entities.Ventas> SelectVentas()
-        {
-            VentasDataContext dblib = new VentasDataContext();
-            ClientesDataContext dblibb = new ClientesDataContext();
-            var q = from U in dblib.sp_ConsultaVentas()
-                    join B in dblibb.sp_ConsultaClientes() on U.Cliente equals B.Id_Cliente               
-                    select new Entities.Ventas
-                    {
-                        idVenta = (int)U.Id_Ventas,
-                        Factura = (int)U.Factura,
-                        idCliente = (int)U.Cliente,
-                        Cliente = B.Cliente,
-                        Subtotal = (decimal)U.SubTotal,
-                        IVA = (decimal)U.IVA,
-                        Total = (decimal)U.Total,
-                        Fecha = (DateTime)U.Fecha
-                    };
-            return q.ToList();
-        }
+        private int _idVenta;
+        private int _Factura;
+        private int _idCliente;
+        private string _Cliente;
+        private decimal _Subtotal;
+        private decimal _IVA;
+        private decimal _Total;
+        private DateTime _Fecha;
 
-        public void InsertarVenta(int Fac, int idC, decimal sub, decimal IVA, decimal Total,DateTime Fe)
-        {
-            VentasDataContext dblib = new VentasDataContext();
-            dblib.sp_InsertarVenta(Fac, idC,sub, IVA, Total, Fe);
-            dblib.SubmitChanges();
-        }
+        public int idVenta
+        { get { return _idVenta; ; } set { _idVenta= value; } }
 
-        public void EliminarVenta(int idV)
-        {
-            VentasDataContext dblib = new VentasDataContext();
-            dblib.sp_EliminarVenta(idV);
-            dblib.SubmitChanges();
-        }
+        public int Factura
+        { get { return _Factura; } set { _Factura = value; } }
 
-        public void EliminarVentaCliente(int idV)
-        {
-            VentasDataContext dblib = new VentasDataContext();
-            dblib.sp_EliminaVentasCliente(idV);
-            dblib.SubmitChanges();
-        }
+        public int idCliente
+        { get { return _idCliente; } set { _idCliente = value; } }
+
+        public string Cliente
+        { get { return _Cliente; } set { _Cliente = value; } }
+
+        public decimal Subtotal
+        { get { return _Subtotal; } set { _Subtotal = value; } }
+
+        public decimal IVA
+        { get { return _IVA; } set { _IVA = value; } }
+
+        public decimal Total
+        { get { return _Total; } set { _Total = value; } }
+
+        public DateTime Fecha
+        { get { return _Fecha; } set { _Fecha = value; } }
     }
 }
