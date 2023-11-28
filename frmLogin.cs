@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Entities;
 
 namespace WinAppSAP
 {
     public partial class frmLogin : Form
     {
+         
         public frmLogin()
         {
             InitializeComponent();
@@ -23,12 +25,31 @@ namespace WinAppSAP
 
         }
 
+        Negocio.Usuarios login = new Negocio.Usuarios();
+        List<Entities.Usuarios> traertodo;
+        public static Boolean flag = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            frmMDI newform = new frmMDI();
-            this.Hide();
-            newform.ShowDialog();
-            this.Show();
+                traertodo = login.UsuarioActivo();
+                foreach (var idUsu in traertodo)
+                {
+                    if ((idUsu.Usuario.TrimEnd().ToUpper() == txtUsuario.Text.TrimEnd().ToUpper()) && (idUsu.Password.TrimEnd().ToUpper() == txtPass.Text.TrimEnd().ToUpper()))
+                    {
+                    txtUsuario.Text = "";
+                    txtPass.Text = "";
+                        flag = true;
+                        frmMDI newform = new frmMDI();
+                        this.Hide();
+                        newform.ShowDialog();
+                        this.Show();
+                    }
+                }
+                if (!flag){
+                    MessageBox.Show(@"Acceso Denegado", "M E N S A J E D E L S I S T E M A");
+                    txtUsuario.Text = "";
+                    txtPass.Text = "";
+                 }
+            flag = false;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -41,7 +62,7 @@ namespace WinAppSAP
             if (txtUsuario.Text == "Usuario")
             {
                 txtUsuario.Text = "";
-                txtUsuario.ForeColor = Color.White;
+           
             }
 
         }
@@ -51,7 +72,7 @@ namespace WinAppSAP
             if (txtUsuario.Text == "")
             {
                 txtUsuario.Text = "Usuario";
-                txtUsuario.ForeColor = Color.DimGray;
+       
             }
         }
 
@@ -60,7 +81,7 @@ namespace WinAppSAP
             if (txtPass.Text == "Password")
             {
                 txtPass.Text = "";
-                txtPass.ForeColor = Color.White;
+              
                 txtPass.UseSystemPasswordChar = true;
             }
         }
@@ -70,7 +91,7 @@ namespace WinAppSAP
             if (txtPass.Text == "")
             {
                 txtPass.Text = "Password";
-                txtPass.ForeColor = Color.DimGray;
+             
                 txtPass.UseSystemPasswordChar = false;
             }
         }
@@ -80,9 +101,35 @@ namespace WinAppSAP
             this.Close();
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        private void pboxUsuario_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pboxPass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPass.Focus();
+            }
+        }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

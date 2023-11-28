@@ -1,7 +1,7 @@
 ﻿
 namespace WinAppSAP
 {
-    partial class frmProductos
+    partial class frmAlmacen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@ namespace WinAppSAP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.grpAgregarProducto = new System.Windows.Forms.GroupBox();
-            this.txtProductos = new System.Windows.Forms.TextBox();
+            this.grpAgregarAlmacen = new System.Windows.Forms.GroupBox();
+            this.cmbProducto = new System.Windows.Forms.ComboBox();
+            this.txtAlmacen = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtProducto = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.dgvAlmacen = new System.Windows.Forms.DataGridView();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.grpBotones = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -44,109 +44,111 @@ namespace WinAppSAP
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtAgregarProduct = new System.Windows.Forms.TextBox();
+            this.txtAgregarAlmacen = new System.Windows.Forms.TextBox();
             this.tipAgregar = new System.Windows.Forms.ToolTip(this.components);
             this.tipGuardar = new System.Windows.Forms.ToolTip(this.components);
             this.tipLimpiar = new System.Windows.Forms.ToolTip(this.components);
             this.tipBuscar = new System.Windows.Forms.ToolTip(this.components);
             this.tipEliminar = new System.Windows.Forms.ToolTip(this.components);
             this.tipSalir = new System.Windows.Forms.ToolTip(this.components);
-            this.grpAgregarProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.grpAgregarAlmacen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.grpBotones.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grpAgregarProducto
+            // grpAgregarAlmacen
             // 
-            this.grpAgregarProducto.BackColor = System.Drawing.Color.White;
-            this.grpAgregarProducto.Controls.Add(this.txtProductos);
-            this.grpAgregarProducto.Controls.Add(this.lblProducto);
-            this.grpAgregarProducto.Controls.Add(this.dgvProductos);
-            this.grpAgregarProducto.Controls.Add(this.lblPrecio);
-            this.grpAgregarProducto.Controls.Add(this.txtProducto);
-            this.grpAgregarProducto.Controls.Add(this.txtPrecio);
-            this.grpAgregarProducto.Controls.Add(this.grpBotones);
-            this.grpAgregarProducto.Controls.Add(this.txtAgregarProduct);
-            this.grpAgregarProducto.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grpAgregarProducto.ForeColor = System.Drawing.Color.Black;
-            this.grpAgregarProducto.Location = new System.Drawing.Point(1, 2);
-            this.grpAgregarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpAgregarProducto.Name = "grpAgregarProducto";
-            this.grpAgregarProducto.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpAgregarProducto.Size = new System.Drawing.Size(1201, 649);
-            this.grpAgregarProducto.TabIndex = 16;
-            this.grpAgregarProducto.TabStop = false;
+            this.grpAgregarAlmacen.BackColor = System.Drawing.Color.White;
+            this.grpAgregarAlmacen.Controls.Add(this.cmbProducto);
+            this.grpAgregarAlmacen.Controls.Add(this.txtAlmacen);
+            this.grpAgregarAlmacen.Controls.Add(this.lblProducto);
+            this.grpAgregarAlmacen.Controls.Add(this.dgvAlmacen);
+            this.grpAgregarAlmacen.Controls.Add(this.lblCantidad);
+            this.grpAgregarAlmacen.Controls.Add(this.txtCantidad);
+            this.grpAgregarAlmacen.Controls.Add(this.grpBotones);
+            this.grpAgregarAlmacen.Controls.Add(this.txtAgregarAlmacen);
+            this.grpAgregarAlmacen.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grpAgregarAlmacen.Location = new System.Drawing.Point(1, 2);
+            this.grpAgregarAlmacen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpAgregarAlmacen.Name = "grpAgregarAlmacen";
+            this.grpAgregarAlmacen.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpAgregarAlmacen.Size = new System.Drawing.Size(1201, 649);
+            this.grpAgregarAlmacen.TabIndex = 17;
+            this.grpAgregarAlmacen.TabStop = false;
             // 
-            // txtProductos
+            // cmbProducto
             // 
-            this.txtProductos.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProductos.Font = new System.Drawing.Font("Segoe UI", 19.8F);
-            this.txtProductos.ForeColor = System.Drawing.Color.White;
-            this.txtProductos.Location = new System.Drawing.Point(0, 251);
-            this.txtProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductos.Name = "txtProductos";
-            this.txtProductos.ReadOnly = true;
-            this.txtProductos.Size = new System.Drawing.Size(1203, 44);
-            this.txtProductos.TabIndex = 17;
-            this.txtProductos.Text = "PRODUCTOS";
-            this.txtProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cmbProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cmbProducto.FormattingEnabled = true;
+            this.cmbProducto.Location = new System.Drawing.Point(178, 72);
+            this.cmbProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbProducto.Name = "cmbProducto";
+            this.cmbProducto.Size = new System.Drawing.Size(425, 36);
+            this.cmbProducto.TabIndex = 27;
+            this.cmbProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbProducto_KeyPress);
+            this.cmbProducto.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbProducto_MouseClick);
+            // 
+            // txtAlmacen
+            // 
+            this.txtAlmacen.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtAlmacen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAlmacen.Font = new System.Drawing.Font("Segoe UI", 19.8F);
+            this.txtAlmacen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAlmacen.Location = new System.Drawing.Point(0, 251);
+            this.txtAlmacen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAlmacen.Name = "txtAlmacen";
+            this.txtAlmacen.ReadOnly = true;
+            this.txtAlmacen.Size = new System.Drawing.Size(1203, 44);
+            this.txtAlmacen.TabIndex = 17;
+            this.txtAlmacen.Text = "ALMACEN";
+            this.txtAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
             this.lblProducto.BackColor = System.Drawing.Color.White;
             this.lblProducto.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.ForeColor = System.Drawing.Color.Orange;
+            this.lblProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblProducto.Location = new System.Drawing.Point(32, 72);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(140, 41);
             this.lblProducto.TabIndex = 11;
             this.lblProducto.Text = "Producto";
             // 
-            // dgvProductos
+            // dgvAlmacen
             // 
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(6, 299);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.RowTemplate.Height = 29;
-            this.dgvProductos.Size = new System.Drawing.Size(1189, 341);
-            this.dgvProductos.TabIndex = 0;
-            this.dgvProductos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProductos_MouseClick);
-            this.dgvProductos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProductos_MouseDoubleClick);
+            this.dgvAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlmacen.Location = new System.Drawing.Point(6, 299);
+            this.dgvAlmacen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAlmacen.Name = "dgvAlmacen";
+            this.dgvAlmacen.RowHeadersWidth = 51;
+            this.dgvAlmacen.RowTemplate.Height = 29;
+            this.dgvAlmacen.Size = new System.Drawing.Size(1189, 341);
+            this.dgvAlmacen.TabIndex = 0;
+            this.dgvAlmacen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAlmacen_MouseClick);
+            this.dgvAlmacen.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAlmacen_MouseDoubleClick);
             // 
-            // lblPrecio
+            // lblCantidad
             // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.BackColor = System.Drawing.Color.White;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.ForeColor = System.Drawing.Color.Orange;
-            this.lblPrecio.Location = new System.Drawing.Point(32, 163);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(100, 41);
-            this.lblPrecio.TabIndex = 12;
-            this.lblPrecio.Text = "Precio";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.BackColor = System.Drawing.Color.White;
+            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCantidad.Location = new System.Drawing.Point(32, 163);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(137, 41);
+            this.lblCantidad.TabIndex = 12;
+            this.lblCantidad.Text = "Cantidad";
             // 
-            // txtProducto
+            // txtCantidad
             // 
-            this.txtProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtProducto.Location = new System.Drawing.Point(178, 72);
-            this.txtProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(425, 34);
-            this.txtProducto.TabIndex = 3;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtPrecio.Location = new System.Drawing.Point(178, 160);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(425, 34);
-            this.txtPrecio.TabIndex = 4;
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtCantidad.Location = new System.Drawing.Point(178, 160);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(425, 34);
+            this.txtCantidad.TabIndex = 4;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // grpBotones
             // 
@@ -245,39 +247,39 @@ namespace WinAppSAP
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtAgregarProduct
+            // txtAgregarAlmacen
             // 
-            this.txtAgregarProduct.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtAgregarProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAgregarProduct.Font = new System.Drawing.Font("Segoe UI", 19.8F);
-            this.txtAgregarProduct.ForeColor = System.Drawing.Color.White;
-            this.txtAgregarProduct.Location = new System.Drawing.Point(0, 0);
-            this.txtAgregarProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAgregarProduct.Name = "txtAgregarProduct";
-            this.txtAgregarProduct.ReadOnly = true;
-            this.txtAgregarProduct.Size = new System.Drawing.Size(1203, 44);
-            this.txtAgregarProduct.TabIndex = 2;
-            this.txtAgregarProduct.Text = "AGREGAR PRODUCTO";
-            this.txtAgregarProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAgregarAlmacen.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtAgregarAlmacen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAgregarAlmacen.Font = new System.Drawing.Font("Segoe UI", 19.8F);
+            this.txtAgregarAlmacen.ForeColor = System.Drawing.Color.White;
+            this.txtAgregarAlmacen.Location = new System.Drawing.Point(0, 0);
+            this.txtAgregarAlmacen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAgregarAlmacen.Name = "txtAgregarAlmacen";
+            this.txtAgregarAlmacen.ReadOnly = true;
+            this.txtAgregarAlmacen.Size = new System.Drawing.Size(1203, 44);
+            this.txtAgregarAlmacen.TabIndex = 2;
+            this.txtAgregarAlmacen.Text = "AGREGAR A ALMACEN";
+            this.txtAgregarAlmacen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAgregarAlmacen.TextChanged += new System.EventHandler(this.txtAgregarAlmacen_TextChanged);
             // 
-            // frmProductos
+            // frmAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1202, 653);
-            this.Controls.Add(this.grpAgregarProducto);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.grpAgregarAlmacen);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(309, 9);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmProductos";
+            this.Name = "frmAlmacen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmProductos";
-            this.Load += new System.EventHandler(this.frmProductos_Load);
-            this.grpAgregarProducto.ResumeLayout(false);
-            this.grpAgregarProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.Text = "frmAlmacen";
+            this.grpAgregarAlmacen.ResumeLayout(false);
+            this.grpAgregarAlmacen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).EndInit();
             this.grpBotones.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -285,11 +287,12 @@ namespace WinAppSAP
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpAgregarProducto;
+        private System.Windows.Forms.GroupBox grpAgregarAlmacen;
+        private System.Windows.Forms.TextBox txtAlmacen;
         private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox txtProducto;
-        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.DataGridView dgvAlmacen;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.GroupBox grpBotones;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnSalir;
@@ -297,9 +300,8 @@ namespace WinAppSAP
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtAgregarProduct;
-        private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.TextBox txtProductos;
+        private System.Windows.Forms.TextBox txtAgregarAlmacen;
+        private System.Windows.Forms.ComboBox cmbProducto;
         private System.Windows.Forms.ToolTip tipAgregar;
         private System.Windows.Forms.ToolTip tipGuardar;
         private System.Windows.Forms.ToolTip tipLimpiar;
