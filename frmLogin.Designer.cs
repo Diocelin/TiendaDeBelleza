@@ -63,6 +63,7 @@ namespace WinAppSAP
             this.txtUsuario.Size = new System.Drawing.Size(288, 39);
             this.txtUsuario.TabIndex = 6;
             this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
